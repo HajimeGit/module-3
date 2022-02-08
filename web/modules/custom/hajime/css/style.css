@@ -1,0 +1,161 @@
+/**
+ * Styles for hajime-review-form form.
+ */
+.hajime-review-form {
+  text-align: center;
+}
+.js-form-required {
+  margin: 0 auto;
+}
+label[for*="edit-image-0"],
+label[for*="edit-avatar-0"] {
+  margin: 0 auto;
+}
+.hajime-review-form .form-item__description {
+  max-width: unset;
+}
+#edit-name-0-value,
+#edit-email-0-value,
+#edit-number-0-value {
+  padding: 10px;
+}
+.hajime-review-form #edit-actions {
+  justify-content: center;
+}
+
+/**
+ * Styles for outputs from form.
+ */
+.response_wrapper {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: all .2s;
+  padding: 20px;
+  border: 1px solid #7e96a7;
+  border-radius: 0.1875rem;
+}
+.review_buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  flex-basis: 50%;
+}
+.review_buttons a {
+  text-decoration: none;
+  color: #7d7d7d;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  line-height: 1;
+}
+.review_buttons a:hover,
+a:focus {
+  color: #7d7d7d;
+  border: none;
+  outline: none;
+}
+.review_buttons a:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #7d7d7d;
+  content: "";
+  transition: width 0.3s ease-out;
+}
+.review_buttons a:hover:after,
+a:focus:after {
+  width: 100%;
+}
+.user_avatar,
+.response_image {
+  display: flex;
+  justify-content: start;
+}
+
+.user_info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.user_info .user_name {
+  font-weight: 700;
+  color: #4c4c4c;
+}
+.user_info .added_date,
+.user_tel,
+.user_email {
+  font-size: 12px;
+  color: #7d7d7d;
+}
+.user_contacts {
+  display: flex;
+  gap: 30px;
+  flex-basis: 50%;
+}
+.response_info,
+.user_contacts {
+  padding-left: 70px;
+}
+.response_text {
+  margin: 10px 0;
+}
+.user_contacts {
+  margin-top: 30px;
+}
+.user_avatar .field--type-image img {
+  height: 50px;
+  width: 50px;
+  margin: 0;
+}
+.response_image .field--name-image img {
+  height: 150px;
+  width: 150px;
+}
+.pager__item a {
+  font-size: 12px;
+  color: #7d7d7d;
+}
+.pager__item a:hover,
+a:focus,
+a:active {
+  font-size: 12px;
+  color: #7d7d7d;
+}
+
+/**
+ * Styles for outputs title.
+ */
+.title_table {
+  font-weight: 300;
+  margin: 61px 0 54px;
+  text-align: center;
+  color: #4c4c4c;
+  position: relative;
+}
+.title_table p {
+  position: relative;
+  display: inline-block;
+  padding: 0 30px;
+  background: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.title_table:before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  content: "";
+  background: #c6c6c6;
+}
+
+/**
+ * Styles for pager.
+ */
+.pager {
+  margin: 20px auto;
+}

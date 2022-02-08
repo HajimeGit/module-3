@@ -1,0 +1,40 @@
+entity.hajime_review.collection:
+  path: '/hajime/list'
+  defaults:
+    _entity_list: 'hajime_review'
+    _title: 'Review list'
+  requirements:
+    # Checks for permission directly.
+    _permission: 'view hajime_review entity'
+
+hajime.front.page:
+  path: '/hajime/form'
+  defaults:
+    _title: 'Reviews'
+    _controller: '\Drupal\hajime\Controller\ReviewController::build'
+  requirements:
+    _permission: 'access content'
+
+entity.hajime_review.canonical:
+  path: '/hajime/{hajime_review}'
+  defaults:
+    _entity_view: 'hajime_review'
+    _title: 'Review content'
+  requirements:
+    _permission: 'view hajime_review entity'
+
+entity.hajime_review.edit_form:
+  path: '/hajime/{hajime_review}/edit'
+  defaults:
+    _entity_form: hajime_review.default
+    _title: 'Edit review'
+  requirements:
+    _permission: 'administer hajime_review entity'
+
+entity.hajime_review.delete_form:
+  path: '/hajime/{hajime_review}/delete'
+  defaults:
+    _entity_form: hajime_review.delete
+    _title: 'Delete review'
+  requirements:
+    _permission: 'administer hajime_review entity'

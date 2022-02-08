@@ -1,0 +1,7 @@
+# Define the menu links for this module
+
+entity.hajime_review.collection.admin.structure.settings:
+  title: 'Reviews'
+  route_name: entity.hajime_review.collection
+  description: 'List of reviews'
+  parent: system.admin_structure

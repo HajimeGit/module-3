@@ -1,0 +1,4 @@
+hajime_library:
+  css:
+    base:
+      css/style.css: {}

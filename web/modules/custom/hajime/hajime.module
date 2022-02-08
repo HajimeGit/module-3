@@ -1,0 +1,82 @@
+<?php
+
+/**
+ * @file
+ * Implements hook_theme().
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+
+/**
+ * Register template files.
+ */
+function hajime_theme($existing, $type, $theme, $path) : array {
+
+  return [
+    'hajime-review-page' => [
+      'variables' => [
+        'form' => NULL,
+        'reviews' => NULL,
+        'pager' => NULL,
+      ],
+    ],
+    'hajime_review' => [
+      'template' => 'hajime_review',
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function hajime_entity_operation_alter(array &$operations, EntityInterface $entity) {
+  $entityTypeId = $entity->getEntityTypeId();
+  $nodeId = $entity->id();
+  if ($entityTypeId == 'hajime_review') {
+    // add custom operation
+    $editUrl = Url::fromRoute('entity.hajime_review.edit_form', ['hajime_review' => $nodeId]);
+    $deleteUrl = Url::fromRoute('entity.hajime_review.delete_form', ['hajime_review' => $nodeId]);
+    $operations['custom_operation'] = [
+      'title' => t('Edit'),
+      'weight' => 20,
+      'url' => $editUrl,
+    ];
+    $operations['custom'] = [
+      'title' => t('Delete'),
+      'weight' => 25,
+      'url' => $deleteUrl,
+    ];
+  }
+}
+/**
+ * Implements hook_template_preprocess_default_variables_alter().
+ */
+function template_preprocess_hajime_review(&$variables) {
+  $variables['content'] = [];
+
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+  /** @var \Drupal\hajime\Entity\HajimeReview $entity */
+  $entity = $variables['elements']['#hajime_review'];
+  $variables['button'] = [
+    '#type' => 'link',
+    '#title' => 'Edit',
+    '#url' => Url::fromRoute('entity.hajime_review.edit_form', ['hajime_review' => $entity->id()],),
+  ];
+
+  if (count($variables['content']['avatar']) <= 3) {
+    $variables['content']['avatar'] = [
+      '#theme' => 'image',
+      '#uri' => '/modules/custom/hajime/files/guest.png',
+      '#attributes' => [
+        'alt' => 'avatar image',
+        'width' => 50,
+        'height' => 50,
+      ],
+    ];
+  }
+}

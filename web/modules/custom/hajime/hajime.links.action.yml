@@ -1,0 +1,9 @@
+# All action links for this module
+
+hajime.list:
+  route_name: entity.hajime_review.collection
+  title: 'Reviews List'
+
+  # Where will the link appear, defined by route name.
+  appears_on:
+    - hajime.front.page

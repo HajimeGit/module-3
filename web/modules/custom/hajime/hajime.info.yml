@@ -1,0 +1,6 @@
+name: Hajime
+description: Provides guestbook entity module.
+package: Custom
+
+type: module
+core_version_requirement: ^8 || ^9

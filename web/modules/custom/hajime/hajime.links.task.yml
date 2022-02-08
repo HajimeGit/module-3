@@ -1,0 +1,14 @@
+hajime_review.view:
+  route_name: entity.hajime_review.canonical
+  base_route: entity.hajime_review.canonical
+  title: View
+
+hajime_review.page_edit:
+  route_name: entity.hajime_review.edit_form
+  base_route: entity.hajime_review.canonical
+  title: Edit
+
+hajime_review.delete_confirm:
+  route_name:  entity.hajime_review.delete_form
+  base_route:  entity.hajime_review.canonical
+  title: Delete

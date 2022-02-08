@@ -1,0 +1,24 @@
+<div class="response_table">
+  <div class="response_wrapper">
+    <div class="user_info">
+      <div class="user_avatar">{{ content.avatar }}</div>
+      <div class="user_name">{{ content.name }}</div>
+      <div class="added_date">{{ content.created }}</div>
+    </div>
+    <div class="response_info">
+      <div class="response_text">{{ content.review }}</div>
+      {% if content.image != NULL %}
+      <div class="response_image">{{ content.image }}</div>
+      {% endif %}
+    </div>
+    <div class="user_contacts">
+      <div class="user_tel">{{ content.number }}</div>
+      <div class="user_email">{{ content.email }}</div>
+      {% if user.hasPermission('administer nodes') %}
+        <div class="review_buttons">
+          {{ button }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
